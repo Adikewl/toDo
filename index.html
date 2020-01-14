@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<style>
+body {
+  background: #fff;
+  color: #444;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
+
+.container {
+  background: #fff;
+  max-width: 600px;
+  width: 100%;
+  display: table;
+  margin: 0 auto;
+  margin-top: 40px;
+
+}
+
+input {
+  border: none;
+  display: block;
+  width: 96.4%;
+  line-height: 1.5;
+  padding: 8px 0 8px 10px;
+  border-bottom: 1px solid #333;
+  outline: 0;
+}
+
+input[type="text"] {
+    padding: 10px;
+    border-radius: 4px;
+    border: 3px solid #333;
+}
+
+.app-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 80px;
+    opacity: 0.5;
+}
+
+h1, h2 {
+  text-align: center;
+  margin-bottom: 0px;
+  line-height: 1.5;
+}
+
+h1, h2 {
+  color: #333;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+ul li {
+  color: #333;
+  font-weight: 400;
+  border-bottom: 1px solid #333;
+  line-height: 1.5;
+  padding: 8px 0;
+  font-size: 50px;;
+}
+ul li:before {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAAAs0lEQVRYhe3YQQ6CMBBG4ad4KA6j6Bk8iBfxIqwtx2mjCxslamOGsXbzf0mThgDzWBYQkcX2wARE4FppxTxjsMYdKkaV1s4SODUIDJ9CVoXACHR5fwJGy9cZ9MAx7xOweb3h7ULWzfYjcP5t19eZD+s/DHZRoJcCvRTopUAvBXop0EuBXgr0UqCXAr1Kp7rE85TVV5w/f3eyPNji4H6xBA4NAreWQLj/KwnU/3kUlsSJSHYDNWew9supCSkAAAAASUVORK5CYII=");
+  padding: 10px 10px;
+  font-size: 20px;
+}
+ul li:hover {
+  text-decoration: line-through;
+  cursor: pointer;
+}
+ul li:last-child {
+  border-bottom: none;
+}
+
+.checked {
+  color: #899098;
+  text-decoration: line-through;
+  
+}
+.checked:before {
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAAABmJLR0QA/wD/AP+gvaeTAAABkklEQVRYhe2YOU7DQBRAH4iGO6Sg5wJxhYAUICEq4AhIlCAoAggRRWERCO5hShoatio5BkgcITZlUnjReJ2xPbEN8pNSfP2ZP09/7Bkr0PDPmQvFR0C7ChGBEfDgBQuhZBvYLVVHwnzVAjLCHRT5AYYleRhAKy6RJjgE9maiE8Uk4dGq/RY3gkVpBGPoAfeqg9Pe4lnQAy6E+Fg2ocwODgjK7QNLskllCfaBUyG2gG3gSzaxDME+cC7EFrAFfKhMziN4Bqwrjr0lKDcGNlGUi8MEJu7PjMlfujkb6EhqDYRaE5zOreZcV2ngRmhBm+RO3oXGjoGVPOtm2eIX4EaIF4Fnop28Inh82DgvxGeGtRJRafU10U52EnIWsKZp3UwDH2Mkn2Lkkp455XXzHjOHRLd7R4i9bX3PWd+nyDnYJSjp8Ysj91qgtk/RgzosqVUO9HwsdN06Bzhybxpq+ui66k6AZTTLgd67+FtjLZ/mi7oojWBR0o4ZA8m9qBEjKZEm2KIG/3T9uS0eVWIRpA4ODeUxBebqaN3KwkihAAAAAElFTkSuQmCC");
+  padding: 10px 10px;
+  font-size: 20px;
+}
+.checked:hover {
+  text-decoration: line-through;
+}
+.checked:after {
+
+  content: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABmJLR0QA/wD/AP+gvaeTAAAEUUlEQVRIibWXbWxTZRTHf+fe9q5bYWzdOmB0FB2YGBJDfIP4ksxIpriQQMYMRsEAE41RiRhjAoEE0X2Q8GbihyGZkxiIIBIZU0P4sGCAiBITP1IQBriMdl0rxI7e3nsfP3SUMnq3DvCf9EvP/zm/8/Q+5zy9wjgUaVkR9JrqCRRTRFQIQCm5gtBvOOnTtV37BorNJWMZ+huX+dM+aXVEmgWeAnQXqy1wAjjodUp213btSt0VWDU0eC6Wz2gVURuBqWMVOEJ9ImyanuztkJ4eq2jw5ZZVAdu09gPPjxM4Mvlx09CWzDrwVWxM8PnFyx/SHfkRqL8X6E0pIeJY0lR/pDPiCh7e6a/AzPsBzdMFwzGfzD98Wq6yhgaPbVrf/Q9QgAdMzdinWlpyBzMHvlgRfgN4ruAyEdC0gqHbpOtZb2HNv5T2r7wN3N+4zC+KDYXc2gQ/09q3ENq9DW+o1pXpDdUS2r2Vae1b0Cb4C3qUqE39jcv8OXDaJ624tIynOoCnpho9UEHNhvfRJ5XfudFJ5dlYZcWwt9KtvqnpMn1lDqyQJW5O8+JlrncfyxYxOUhw/RrEMHJxMQyC69fgmRwE4Hr3MTKXrrilQzk0A0jfwleqTc3ox30igaYR/OgdyuY+CkDq1O/EPvsCgOq1b+J/dh4AQ2f+JNq2E2zbNRVgG445RX/34ccbgNdGc6IUQ7/9gW/ObDxVlXjratFKSiidM5uJL2TPo/lXL9HN2yGTGTUVoCn0ExqiihqHKm0Sa/scKxYHoHzxAsoXLchuYTBJ9NOdqBs3ikmFg5qpiWJaUW7ATiSJbt6Gkxq6lWToBtGPt2LHB4tNA1ChKRE1nhX3SxqovmLNemUFNRvWopWV3kpQ6qNm4wfoVYHxcJNFg6XEILjuPTzBKgCuHfqJaz/8nC0oUEHNujWIz1cUVUSLaB7hNFDwzsxzUr32LUpmPQhk2ymxZz+Jzm9JnToDgFEfJvjh28WMVtvrpE9poUN74gInR3MGWl/N9XD67HkGtu8CpUApBna0Y0YuAFD62CMEViwdC3y8tmvfwM3yDrq5jBl1TGyaD4B1NUasbSfKNHNxlTaJtu3ItdnEhY1469xnOkp9D8MjUzNSXwIF55w1MIgVi2PHE0Q/2Y6dvHaHx078Q3TzNuxEEutqDHsw6YbtM5SvA/L+CPQuen21UrQXtItkP47jvhPIPt/hR1BQSlbNONzZAXn38fRkbwdwrPACNTYUsh4XqMDRcMm/X+dqzAV6eiyxMi8rIVJw5b3pLFZmqRw4kLs9bjv74e69CceSpvsMP6sruyncvTeR/+UdTVd/pDOiZTJzcfvZxyGBo2Jl5tUd/ubcyFjBbg93702EjdSLomQ1UPRIzdPfCK3TjdRLI3eaV9To6lu4uiyjm6uUQzOinmGUVxjgF5Q6aChfx12/whTSlcXLqxxbnraFeoEqAAVxDTmna87J0KE98WJz/QdUEZF0zFJW3wAAAABJRU5ErkJggg==");
+  color: tomato;
+  text-align: right;
+  float: right;
+  margin-right: 10px;;
+}
+
+
+</style>
+
+<body>
+
+    <h1 class="app-title">To-Do List</h1>
+
+    
+    <div class="container">
+      
+      <form  action="#">
+        <input type="text" name="item" id="item" placeholder="Add New" />
+    </form>  
+    <ul id="list"></ul>
+    
+    </div>
+
+    
+</body>
+
+<script>
+
+(function(){
+  
+  var list = document.querySelector('#list'),
+      form = document.querySelector('form'),
+      item = document.querySelector('#item');
+  
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    list.innerHTML += '<li>' + item.value + '</li>';
+    store();
+    item.value = "";
+  },false)
+  
+  list.addEventListener('click',function(e){
+    var t = e.target;
+    if(t.classList.contains('checked')){
+      t.parentNode.removeChild(t);
+    } else {
+      t.classList.add('checked');
+    }
+    store();
+  },false)
+  
+  function store() {
+    window.localStorage.myitems = list.innerHTML;
+  }
+  
+  function getValues() {
+    var storedValues = window.localStorage.myitems;
+    if(!storedValues) {
+      list.innerHTML = '';
+    }
+    else {
+      list.innerHTML = storedValues;
+    }
+  }
+  getValues();
+})();
+
+
+</script>
+
+</html>
+
